@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package minitestpesonalidadclips;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import net.sf.clipsrules.jni.*;
 /**
  *
@@ -11,6 +13,7 @@ import net.sf.clipsrules.jni.*;
  */
 public class TestPerosnalidad extends javax.swing.JFrame {
     private Environment clips;
+    String var1="";
     /**
      * Creates new form TestPerosnalidad
      */
@@ -557,21 +560,29 @@ public class TestPerosnalidad extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntconsultarActionPerformed
-         clips.reset();
-         clips.eval("(assert(pregunta1 "+txtnombre.getText()+" "+l1.getSelectedItem()+" "+o1.getSelectedItem()+" "+g1.getSelectedItem()+" "+b1.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta2 "+txtnombre.getText()+" "+l2.getSelectedItem()+" "+o2.getSelectedItem()+" "+g2.getSelectedItem()+" "+b2.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta3 "+txtnombre.getText()+" "+l3.getSelectedItem()+" "+o3.getSelectedItem()+" "+g3.getSelectedItem()+" "+b3.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta4 "+txtnombre.getText()+" "+l4.getSelectedItem()+" "+o4.getSelectedItem()+" "+g4.getSelectedItem()+" "+b4.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta5 "+txtnombre.getText()+" "+l5.getSelectedItem()+" "+o5.getSelectedItem()+" "+g5.getSelectedItem()+" "+b5.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta6 "+txtnombre.getText()+" "+l6.getSelectedItem()+" "+o6.getSelectedItem()+" "+g6.getSelectedItem()+" "+b6.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta7 "+txtnombre.getText()+" "+l7.getSelectedItem()+" "+o7.getSelectedItem()+" "+g7.getSelectedItem()+" "+b7.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta8 "+txtnombre.getText()+" "+l8.getSelectedItem()+" "+o8.getSelectedItem()+" "+g8.getSelectedItem()+" "+b8.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta9 "+txtnombre.getText()+" "+l9.getSelectedItem()+" "+o9.getSelectedItem()+" "+g9.getSelectedItem()+" "+b9.getSelectedItem()+"))");
-         clips.eval("(assert(pregunta10 "+txtnombre.getText()+" "+l10.getSelectedItem()+" "+o10.getSelectedItem()+" "+g10.getSelectedItem()+" "+b10.getSelectedItem()+"))");
-         clips.run();
-        String respuesta = clips.getInputBuffer();
-        System.out.println(respuesta);
-        this.txtrespuesta.setText(respuesta);
+        try {
+            clips.reset();
+            clips.eval("(assert(pregunta1 "+txtnombre.getText()+" "+l1.getSelectedIndex()+" "+o1.getSelectedIndex()+" "+g1.getSelectedIndex()+" "+b1.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta2 "+txtnombre.getText()+" "+l2.getSelectedIndex()+" "+o2.getSelectedIndex()+" "+g2.getSelectedIndex()+" "+b2.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta3 "+txtnombre.getText()+" "+l3.getSelectedIndex()+" "+o3.getSelectedIndex()+" "+g3.getSelectedIndex()+" "+b3.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta4 "+txtnombre.getText()+" "+l4.getSelectedIndex()+" "+o4.getSelectedIndex()+" "+g4.getSelectedIndex()+" "+b4.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta5 "+txtnombre.getText()+" "+l5.getSelectedIndex()+" "+o5.getSelectedIndex()+" "+g5.getSelectedIndex()+" "+b5.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta6 "+txtnombre.getText()+" "+l6.getSelectedIndex()+" "+o6.getSelectedIndex()+" "+g6.getSelectedIndex()+" "+b6.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta7 "+txtnombre.getText()+" "+l7.getSelectedIndex()+" "+o7.getSelectedIndex()+" "+g7.getSelectedIndex()+" "+b7.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta8 "+txtnombre.getText()+" "+l8.getSelectedIndex()+" "+o8.getSelectedIndex()+" "+g8.getSelectedIndex()+" "+b8.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta9 "+txtnombre.getText()+" "+l9.getSelectedIndex()+" "+o9.getSelectedIndex()+" "+g9.getSelectedIndex()+" "+b9.getSelectedIndex()+"))");
+            clips.eval("(assert(pregunta10 "+txtnombre.getText()+" "+l10.getSelectedIndex()+" "+o10.getSelectedIndex()+" "+g10.getSelectedIndex()+" "+b10.getSelectedIndex()+"))");
+            clips.run();
+            //String evaluar1 = "(find-all-facts)";
+            //MultifieldValue var1 =(MultifieldValue)clips.eval(evaluar1);
+            //FactAddressValue fv1 =(FactAddressValue)((MultifieldValue)clips.eval(evaluar1)).get(0);
+            //var1 = fv1.getFactSlot("Caracter").toString();
+            String var1 = clips.getInputBuffer();
+            System.out.println(var1);
+            this.txtrespuesta.setText(var1+"");
+        } catch (Exception ex) {
+            Logger.getLogger(TestPerosnalidad.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bntconsultarActionPerformed
 
     /**
